@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drishty's Birthday</title>
+    <style>
+        body {
+            background-color: #ffe6e6;
+            font-family: 'Arial', sans-serif;
+            color: #333;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        .container {
+            padding: 50px;
+            animation: fadeIn 2s ease-in;
+        }
+
+        #greeting {
+            font-size: 36px;
+            color: #ff66a3;
+            animation: slideInFromTop 1s ease-out;
+            margin-bottom: 20px;
+        }
+
+        #birthdayPhoto {
+            width: 250px;
+            border-radius: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            animation: fadeIn 2s ease-in;
+        }
+
+        #countdown {
+            font-size: 24px;
+            margin-top: 20px;
+            color: #ff66a3;
+            animation: zoomIn 1s ease;
+        }
+
+        #quotes {
+            margin: 20px 0;
+            font-style: italic;
+            font-size: 20px;
+            color: #b30059;
+            animation: bounce 2s infinite;
+        }
+
+        .buttons {
+            margin: 30px 0;
+        }
+
+        button {
+            background-color: #ff66a3;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+            font-size: 18px;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+            animation: slideInFromBottom 1s ease-out;
+        }
+
+        button:hover {
+            background-color: #b30059;
+            transform: scale(1.1);
+        }
+
+        .memories-section {
+            display: none;
+            margin-top: 20px;
+            animation: fadeIn 1s ease-in;
+        }
+
+        #photoGallery img, #videoGallery video {
+            width: 200px;
+            margin: 10px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+
+        #photoGallery img:hover, #videoGallery video:hover {
+            transform: scale(1.1);
+        }
+
+        h2 {
+            color: #ff66a3;
+            animation: slideInFromLeft 1s ease-out;
+        }
+
+        /* Popup Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            border-radius: 10px;
+            animation: fadeIn 0.5s;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Keyframes for animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideInFromTop {
+            from { transform: translateY(-100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes slideInFromBottom {
+            from { transform: translateY(100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes slideInFromLeft {
+            from { transform: translateX(-100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 id="greeting">🎉 Happy Birthday, Drishty! 🎂</h1>
+        <img id="birthdayPhoto" src="/Drishty/vidoe/-1093058858.jpg" alt="Drishty">
+        <div id="countdown">⏳</div>
+        <div id="quotes">💖</div>
+
+        <div class="buttons">
+            <button onclick="toggleMemories('photo')">📷 Memories (Photo)</button>
+            <button onclick="toggleMemories('video')">🎥 Memories (Video)</button>
+        </div>
+
+        <div id="memories-photo" class="memories-section">
+            <h2>🖼️ Photo Memories</h2>
+            <div id="photoGallery">
+                <!-- Add 22 photos here -->
+                <img src="/Drishty/1.jpg" alt="Memory 1" onclick="showQuote('This moment is priceless! 💕')">
+                <img src="/Drishty/2.jpg" alt="Memory 2" onclick="showQuote('You are beautiful inside and out! 🌸')">
+                <img src="/Drishty/3.jpg" alt="Memory 3" onclick="showQuote('Your smile is my sunshine! ☀️')">
+                <img src="/Drishty/4.jpg" alt="Memory 4" onclick="showQuote('You make my heart skip a beat! 💖')">
+                <img src="/Drishty/5.jpg" alt="Memory 5" onclick="showQuote('Together is my favorite place to be! 🥰')">
+                <img src="/Drishty/6.jpg" alt="Memory 6" onclick="showQuote('You are my dream come true! 🌠')">
+                <img src="/Drishty/7.jpg" alt="Memory 7" onclick="showQuote('Every day with you is a wonderful addition to my life! 🌼')">
+                <img src="/Drishty/8.jpg" alt="Memory 8" onclick="showQuote('You are the reason I believe in love! 💘')">
+                <img src="/Drishty/9.jpg" alt="Memory 9" onclick="showQuote('You light up my life! 🔥')">
+                <img src="/Drishty/10.jpg" alt="Memory 10" onclick="showQuote('You are my favorite person! 🌈')">
+                <img src="/Drishty/11.jpg" alt="Memory 11" onclick="showQuote('Love is a journey best traveled with you! 🚀')">
+                <img src="/Drishty/12.jpg" alt="Memory 12" onclick="showQuote('You make the world a better place! 🌍')">
+                <img src="/Drishty/13.jpg" alt="Memory 13" onclick="showQuote('You are my everything! 💞')">
+                <img src="/Drishty/14.jpg" alt="Memory 14" onclick="showQuote('Your laughter is my favorite sound! 🎶')">
+                <img src="/Drishty/15.jpg" alt="Memory 15" onclick="showQuote('You are the love of my life! 💓')">
+                <img src="/Drishty/16.jpg" alt="Memory 16" onclick="showQuote('You are more than I ever dreamed of! 🌌')">
+                <img src="/Drishty/17.jpg" alt="Memory 17" onclick="showQuote('You fill my heart with joy! 💖')">
+                <img src="/Drishty/19.jpg" alt="Memory 19" onclick="showQuote('You make my life complete! 🎊')">
+                <img src="/Drishty/20.jpg" alt="Memory 20" onclick="showQuote('You are my heart’s desire! 💗')">
+                <img src="/Drishty/22.jpg" alt="Memory 22" onclick="showQuote('You are loved more than you know! ❤️')">
+            </div>
+        </div>
+
+        <div id="memories-video" class="memories-section">
+            <h2>🎥 Video Memories</h2>
+            <div id="videoGallery">
+                <!-- Add 13 videos here -->
+                <video src="/Drishty/vidoe/1.mp4" controls onclick="showQuote('Every moment is a treasure! 💎')"></video>
+                <video src="/Drishty/vidoe/2.mp4" controls onclick="showQuote('Love is all around us! 💞')"></video>
+                <video src="/Drishty/vidoe/3.mp4" controls onclick="showQuote('You are simply amazing! ✨')"></video>
+                <video src="/Drishty/vidoe/4.mp4" controls onclick="showQuote('Every day is an adventure with you! 🗺️')"></video>
+                <video src="/Drishty/vidoe/5.mp4" controls onclick="showQuote('You make the world a beautiful place! 🌺')"></video>
+                <video src="/Drishty/vidoe/6.mp4" controls onclick="showQuote('You are a gift to my life! 🎁')"></video>
+                <video src="/Drishty/vidoe/7.mp4" controls onclick="showQuote('You are my reason to smile! 😊')"></video>
+                <video src="/Drishty/vidoe/8.mp4" controls onclick="showQuote('You are my favorite memory! 📖')"></video>
+                <video src="/Drishty/vidoe/9.mp4" controls onclick="showQuote('Life is better with you! 🥳')"></video>
+                <video src="/Drishty/vidoe/10.mp4" controls onclick="showQuote('You bring joy to my life! 🌟')"></video>
+                <video src="/Drishty/vidoe/11.mp4" controls onclick="showQuote('Your love is my treasure! 💰')"></video>
+                <video src="/Drishty/vidoe/12.mp4" controls onclick="showQuote('Every moment with you is special! 🎉')"></video>
+                <video src="/Drishty/vidoe/13.mp4" controls onclick="showQuote('You are my heart and soul! ❤️')"></video>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Quotes -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <p id="modalQuote"></p>
+        </div>
+    </div>
+
+    <script>
+        const birthdayDate = new Date("September 10, 2024 00:00:00").getTime();
+        const quotes = [
+            "You are the love of my life! 💖",
+            "You make every day better! 🌹",
+            "You bring joy into my life! 🌈",
+            "You light up my world! 🌟",
+            "Together, we are unstoppable! 💪",
+            "You are my sunshine! ☀️",
+            "You are a beautiful person, inside and out! 💕",
+            "Every moment with you is a treasure! 💎"
+        ];
+
+        const updateCountdown = () => {
+            const now = new Date().getTime();
+            const distance = birthdayDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('countdown').innerHTML = `⏳ ${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById('countdown').innerHTML = "🎉 It's your Birthday!";
+                document.getElementById('greeting').innerHTML = "🎁 Wishing you the best day ever!";
+            }
+        }
+
+        setInterval(updateCountdown, 1000);
+
+        function showQuotes() {
+            const quoteElement = document.getElementById('quotes');
+            quoteElement.innerHTML = quotes[Math.floor(Math.random() * quotes.length)];
+        }
+
+        setInterval(showQuotes, 5000);
+
+        function toggleMemories(type) {
+            document.getElementById('memories-photo').style.display = type === 'photo' ? 'block' : 'none';
+            document.getElementById('memories-video').style.display = type === 'video' ? 'block' : 'none';
+        }
+
+        function showQuote(quote) {
+            const modal = document.getElementById("myModal");
+            const modalQuote = document.getElementById("modalQuote");
+            modalQuote.innerText = quote;
+            modal.style.display = "block";
+        }
+
+        function closeModal() {
+            const modal = document.getElementById("myModal");
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById("myModal");
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
